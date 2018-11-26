@@ -27,8 +27,9 @@ public class ClientService {
 		return this.dao.read(id);
 	}
 	
-	public void updateClient(Client entity) {
-		this.dao.update(entity);
+	public void updateClient(String firstname, String lastname, String email, String address, Integer id) {
+		Client client = new Client(id, firstname, lastname, email, address);
+		this.dao.update(client);
 	}
 
 }

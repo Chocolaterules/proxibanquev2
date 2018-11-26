@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,135 +71,25 @@
       </div>
     </header>
     
-    <!-- Portfolio Grid -->
-    <section class="bg-light" id="portfolio">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Service Client</h2>
-            <h3 class="section-subheading text-muted">Veuillez choisir une action à réaliser.</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/01-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Créer un dossier client</h4>
-              <p class="text-muted">.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/02-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Gérer un dossier client</h4>
-              <p class="text-muted">.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/03-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Modifier un dossier client</h4>
-              <p class="text-muted">.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/04-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Faire un virement</h4>
-              <p class="text-muted">.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/05-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Faire une simulation de crédit</h4>
-              <p class="text-muted">.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/06-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Supprimer un dossier client</h4>
-              <p class="text-muted">.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Team -->
-    <section class="bg-light" id="team">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Sexy & Chocolat Dream Team</h2>
-            <h3 class="section-subheading text-muted">Découvrez notre superbe équipe !</h3>
-          </div>
-        </div>
-           <div class="row">
-        <c:forEach var="client" items="${clients}">
-     
-          <div class="col-sm-4">
-            <div class="client">
-				<h4>${client.firstname} ${client.lastname}</h4>
-              <p>${client.email}<br>${client.address}</p>
-              <a href="edit.html?id=${client.id}">Modifier les informations</a>
-			  <p class="text-muted">Liste des comptes<br>Faire un virement</p>
-            </div>
-          </div>
-        
-        </c:forEach>
-           </div>
-		     
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <p class="large text-muted">Notre team est à votre écoute, n'hésitez pas à nous contacter.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <form method="post" action="">
+		<div>
+			<label for="lastname">Nom</label>
+			<input id="lastname" name="lastname" value="${client.lastname}">
+		</div>
+		<div>
+			<label for="firstname">Prénom</label>
+			<input id="firstname" name="firstname" value="${client.firstname}">
+		</div>
+		<div>
+			<label for="email">Email</label>
+			<input id="email" name="email" value="${client.email}">
+		</div>
+		<div>
+			<label for="address">Adresse</label>
+			<input id="address" name="address" value="${client.address}">
+		</div>
+		<button>Valider</button>
+	</form>
 
     <!-- Clients -->
     <section class="py-5">

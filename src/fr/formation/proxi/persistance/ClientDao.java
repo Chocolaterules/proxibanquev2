@@ -28,8 +28,21 @@ public class ClientDao implements Dao<Client>{
 
 	@Override
 	public Client read(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		Client client = new Client();
+		try {
+			Statement st = this.mysqlConn.getConn().createStatement();
+			ResultSet rs = st.executeQuery(String.format(SqlQueries.READ_CLIENT, id));
+			while(rs.next()) {
+				String firstname = rs.getString("firstname");
+				String lastname = rs.getString("lastname");
+				String email = rs.getString("email");
+				String address = rs.getString("address");
+				client =new Client(firstname, lastname, email, address);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return client;
 	}
 
 	@Override
@@ -39,12 +52,12 @@ public class ClientDao implements Dao<Client>{
 			Statement st = this.mysqlConn.getConn().createStatement();
 			ResultSet rs = st.executeQuery(SqlQueries.READ_ALL_CLIENT);
 			while(rs.next()) {
-				//Integer id = rs.getInt("id");
+				Integer id = rs.getInt("id");
 				String firstname = rs.getString("firstname");
 				String lastname = rs.getString("lastname");
 				String email = rs.getString("email");
 				String address = rs.getString("address");
-				results.add(new Client(firstname, lastname, email, address));
+				results.add(new Client(id, firstname, lastname, email, address));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -54,8 +67,21 @@ public class ClientDao implements Dao<Client>{
 
 	@Override
 	public Client update(Client entity) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			Statement st = this.mysqlConn.getConn().createStatement();
+			String queryFirstname = String.format(SqlQueries.UPDATE_CLIENT, "firstname", entity.getFirstname(), entity.getId());
+			String queryLastname = String.format(SqlQueries.UPDATE_CLIENT, "lastname", entity.getLastname(), entity.getId());
+			String queryEmail = String.format(SqlQueries.UPDATE_CLIENT, "email", entity.getEmail(), entity.getId());
+			String queryAddress = String.format(SqlQueries.UPDATE_CLIENT, "address", entity.getAddress(), entity.getId());
+			st.execute(queryFirstname);
+			st.execute(queryLastname);
+			st.execute(queryEmail);
+			st.execute(queryAddress);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return entity;
 	}
 
 	@Override
@@ -63,6 +89,7 @@ public class ClientDao implements Dao<Client>{
 		// TODO Auto-generated method stub
 		return false;
 	}
+
 	
 	
 
