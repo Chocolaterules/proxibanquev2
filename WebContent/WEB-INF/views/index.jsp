@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,44 +70,16 @@
         </div>
       </div>
     </header>
-
-    <!-- Services -->
-    <section id="services">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Agence et Conseillers</h2>
-            <h3 class="section-subheading text-muted">Veuillez sélectionner une vignette.</h3>
-          </div>
-        </div>
-        <div class="row text-center">
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fas fa-circle fa-stack-2x text-primary"></i>
-              <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Agence</h4>
-            <p class="text-muted">Vous pouvez sélectionner l'agence de votre choix.</p>
-          </div>
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fas fa-circle fa-stack-2x text-primary"></i>
-              <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Conseiller</h4>
-            <p class="text-muted">Vous pouvez sélectionner le conseiller de votre choix.</p>
-          </div>
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fas fa-circle fa-stack-2x text-primary"></i>
-              <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Directeur</h4>
-            <p class="text-muted">Vous pouvez sélectionner le directeur de votre choix.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    
+    <h1>Liste des clients : </h1>
+	<div> 
+		<c:forEach var="client" items="${clients}">
+			<div class="client">
+				<h4>${client.firstname} ${client.lastname}</h4>
+              <p>${client.email}<br>${client.address}</p>
+			</div>
+		</c:forEach>
+	</div>
 
     <!-- Portfolio Grid -->
     <section class="bg-light" id="portfolio">
@@ -206,129 +179,6 @@
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Foire Aux Questions</h2>
-            <h3 class="section-subheading text-muted">Une question? Nous y avons peut être déjà répondu.</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <ul class="timeline">
-              <li>
-                <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img/about/1.jpg" alt="">
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>Question N°1</h4>
-                    <h4 class="subheading">Se connecter</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Explications</p>
-                  </div>
-                </div>
-              </li>
-              <li class="timeline-inverted">
-                <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img/about/2.jpg" alt="">
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>Question N°2</h4>
-                    <h4 class="subheading">Créer un dossier client</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Explications</p>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img/about/3.jpg" alt="">
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>Question N°3</h4>
-                    <h4 class="subheading">Gérer un dossier client</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Explications</p>
-                  </div>
-                </div>
-              </li>
-              <li class="timeline-inverted">
-                <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img/about/4.jpg" alt="">
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>Question N°4</h4>
-                    <h4 class="subheading">Modifier un dossier client</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Explications</p>
-                  </div>
-                </div>
-              </li>
-			  <li>
-                <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img/about/3.jpg" alt="">
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>Question N°5</h4>
-                    <h4 class="subheading">Faire un virement</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Explications</p>
-                  </div>
-                </div>
-              </li>
-			  <li class="timeline-inverted">
-                <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img/about/4.jpg" alt="">
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>Question N°6</h4>
-                    <h4 class="subheading">Faire une simulation de crédit</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Explications</p>
-                  </div>
-                </div>
-              </li>
-			  <li>
-                <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img/about/3.jpg" alt="">
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>Question N°7</h4>
-                    <h4 class="subheading">Supprimer un dossier client</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Explications</p>
-                  </div>
-                </div>
-              </li>
-              <li class="timeline-inverted">
-                <div class="timeline-image">
-                  <h4>Une autre
-                    <br>question?
-                    <br>Contactez-nous!</h4>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Team -->
     <section class="bg-light" id="team">
       <div class="container">
@@ -338,52 +188,19 @@
             <h3 class="section-subheading text-muted">Découvrez notre superbe équipe !</h3>
           </div>
         </div>
-        <div class="row">
+           <div class="row">
+        <c:forEach var="client" items="${clients}">
+     
           <div class="col-sm-4">
-            <div class="team-member">
-              <h4>Prénom Nom</h4>
-              <p class="text">Email<br>Adresse</p>
+            <div class="client">
+				<h4>${client.firstname} ${client.lastname}</h4>
+              <p>${client.email}<br>${client.address}</p>
 			  <p class="text-muted">Modifier les informations<br>Liste des comptes<br>Faire un virement</p>
             </div>
           </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <h4>Prénom Nom</h4>
-              <p class="text">Email<br>Adresse</p>
-			  <p class="text-muted">Modifier les informations<br>Liste des comptes<br>Faire un virement</p>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <h4>Prénom Nom</h4>
-              <p class="text">Email<br>Adresse</p>
-			  <p class="text-muted">Modifier les informations<br>Liste des comptes<br>Faire un virement</p>
-            </div>
-          </div>
-        </div>
-		<div class="row">
-          <div class="col-sm-4">
-            <div class="team-member">
-              <h4>Prénom Nom</h4>
-              <p class="text">Email<br>Adresse</p>
-			  <p class="text-muted">Modifier les informations<br>Liste des comptes<br>Faire un virement</p>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <h4>Prénom Nom</h4>
-              <p class="text">Email<br>Adresse</p>
-			  <p class="text-muted">Modifier les informations<br>Liste des comptes<br>Faire un virement</p>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <h4>Prénom Nom</h4>
-              <p class="text">Email<br>Adresse</p>
-			  <p class="text-muted">Modifier les informations<br>Liste des comptes<br>Faire un virement</p>
-            </div>
-          </div>
-        </div>
+        
+        </c:forEach>
+           </div>
 		     
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
