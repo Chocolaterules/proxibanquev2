@@ -12,4 +12,15 @@
 		<url-pattern>/index.html</url-pattern>
 	</servlet-mapping>
 	
+	
+	<servlet>
+		<servlet-name>AccountListServlet</servlet-name>
+		<servlet-class>fr.formation.proxi.presentation.AccountListServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>AccountListServlet</servlet-name>
+		<url-pattern>/accountList.html</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
