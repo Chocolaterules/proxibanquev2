@@ -20,8 +20,8 @@ public class AccountService {
 		this.dao = new AccountDao();
 	}
 	
-	public List<Account> getAll() {
-		return this.dao.readAll();
+	public List<Account> getAll(Integer id) {
+		return this.dao.readAll(id);
 	}
 	
 	public Account getAccount(Integer id) {

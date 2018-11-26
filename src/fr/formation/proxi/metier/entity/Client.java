@@ -40,9 +40,7 @@ public class Client {
 	}
 	
 	
-
 	public Client(Integer id, String firstname, String lastname, String email, String address) {
-		super();
 		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;

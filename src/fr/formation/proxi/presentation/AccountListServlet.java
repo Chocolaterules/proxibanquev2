@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.formation.proxi.metier.AccountService;
+import fr.formation.proxi.metier.ClientService;
+
 public class AccountListServlet extends HttpServlet {
 
 	/**
@@ -16,6 +19,12 @@ public class AccountListServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String strId = req.getParameter("id");
+		Integer id = Integer.parseInt(strId);
+		AccountService service = AccountService.getInstance();
+		req.setAttribute("accounts", service.getAll(id));
+		this.getServletContext().getRequestDispatcher("/WEB-INF/views/accountList.jsp").forward(req, resp);
 	}
+	
 
 }

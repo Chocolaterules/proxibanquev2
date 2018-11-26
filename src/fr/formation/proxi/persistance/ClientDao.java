@@ -90,6 +90,13 @@ public class ClientDao implements Dao<Client>{
 		return false;
 	}
 
+
+	@Override
+	public List<Client> readAll(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 	
 

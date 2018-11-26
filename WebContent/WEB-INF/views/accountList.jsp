@@ -71,6 +71,23 @@
       </div>
     </header>
 
+    
+    <h1>Liste des comptes : </h1>
+    <div class="col-lg-12 text-center">
+	<div class="row" > 
+		 
+		<c:forEach var="account" items="${accounts}">
+			<div class="account" style="margin-right: 15px">
+			<h6>Numéro de compte</h6>
+              <p>${account.number}<br>
+              <h6>Solde du compte</h6>
+              ${account.balance} &#8364</p>
+			</div>
+		</c:forEach>
+		</div>
+	</div>
+
+
     <!-- Portfolio Grid -->
     <section class="bg-light" id="portfolio">
       <div class="container">
@@ -186,9 +203,7 @@
             <div class="client">
 				<h4>${client.firstname} ${client.lastname}</h4>
               <p>${client.email}<br>${client.address}</p>
-
-			  <p class="text-muted"><a href="edit.html?id=${client.id}">Modifier les informations</a><br>
-			  <a href="accountList.html?id=${client.id}">Liste des comptes</a><br>Faire un virement</p>
+			  <p class="text-muted">Modifier les informations<br>Liste des comptes<br>Faire un virement</p>
             </div>
           </div>
         
