@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,7 +71,17 @@
       </div>
     </header>
 
-   
+    
+    <h1>Liste des clients : </h1>
+	<div> 
+		<c:forEach var="client" items="${clients}">
+			<div class="client">
+				<h4>${client.firstname} ${client.lastname}</h4>
+              <p>${client.email}<br>${client.address}</p>
+			</div>
+		</c:forEach>
+	</div>
+
 
     <!-- Portfolio Grid -->
     <section class="bg-light" id="portfolio">
@@ -170,7 +181,7 @@
       </div>
     </section>
 
-    
+
     <!-- Team -->
     <section class="bg-light" id="team">
       <div class="container">
@@ -180,52 +191,19 @@
             <h3 class="section-subheading text-muted">Découvrez notre superbe équipe !</h3>
           </div>
         </div>
-        <div class="row">
+           <div class="row">
+        <c:forEach var="client" items="${clients}">
+     
           <div class="col-sm-4">
-            <div class="team-member">
-              <h4>Prénom Nom</h4>
-              <p class="text">Email<br>Adresse</p>
+            <div class="client">
+				<h4>${client.firstname} ${client.lastname}</h4>
+              <p>${client.email}<br>${client.address}</p>
 			  <p class="text-muted">Modifier les informations<br>Liste des comptes<br>Faire un virement</p>
             </div>
           </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <h4>Prénom Nom</h4>
-              <p class="text">Email<br>Adresse</p>
-			  <p class="text-muted">Modifier les informations<br>Liste des comptes<br>Faire un virement</p>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <h4>Prénom Nom</h4>
-              <p class="text">Email<br>Adresse</p>
-			  <p class="text-muted">Modifier les informations<br>Liste des comptes<br>Faire un virement</p>
-            </div>
-          </div>
-        </div>
-		<div class="row">
-          <div class="col-sm-4">
-            <div class="team-member">
-              <h4>Prénom Nom</h4>
-              <p class="text">Email<br>Adresse</p>
-			  <p class="text-muted">Modifier les informations<br>Liste des comptes<br>Faire un virement</p>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <h4>Prénom Nom</h4>
-              <p class="text">Email<br>Adresse</p>
-			  <p class="text-muted">Modifier les informations<br>Liste des comptes<br>Faire un virement</p>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <h4>Prénom Nom</h4>
-              <p class="text">Email<br>Adresse</p>
-			  <p class="text-muted">Modifier les informations<br>Liste des comptes<br>Faire un virement</p>
-            </div>
-          </div>
-        </div>
+        
+        </c:forEach>
+           </div>
 		     
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
