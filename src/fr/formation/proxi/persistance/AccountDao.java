@@ -17,7 +17,6 @@ public class AccountDao  implements Dao<Account>{
 		this.mysqlConn = MySqlConnection.getInstance();
 	}
 	
-	@Override
 	public Account create(Account entity, Integer id) {
 		try {
 			Statement st = this.mysqlConn.getConn().createStatement();
@@ -48,20 +47,17 @@ public class AccountDao  implements Dao<Account>{
 				account = new Account(idacc, number, balance, savings);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
 		
 		return account;	
 	}
 
-	@Override
 	public List<Account> readAll(Integer id) {
 		List<Account> results = new ArrayList<>();
 		try {
 			Statement st = this.mysqlConn.getConn().createStatement();
 			ResultSet rs = st.executeQuery(String.format(SqlQueries.READ_ALL_ACCOUNT, id));
-			//ResultSet rs = st.executeQuery(SqlQueries.READ_ALL_ACCOUNT);
 			while(rs.next()) {
 				Integer idacc = rs.getInt("id");
 				Boolean savings = rs.getBoolean("savings");
@@ -92,7 +88,18 @@ public class AccountDao  implements Dao<Account>{
 
 	@Override
 	public boolean delete(Integer id) {
-		return false;
+		Boolean result = false;
+		try {
+			Statement st = this.mysqlConn.getConn().createStatement();
+			int rowsacc = st.executeUpdate(String.format(SqlQueries.DELETE_ACCOUNTS, id));
+			if (rowsacc > 0) {	
+				result = true;				
+			}	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 
 	@Override

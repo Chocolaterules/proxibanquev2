@@ -27,16 +27,13 @@ public class TransferServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		Integer id = Integer.parseInt(req.getParameter("id"));
-		
 		Integer compteA = Integer.parseInt(req.getParameter("account1"));
 		Integer compteB = Integer.parseInt(req.getParameter("account2"));
 		Float montant = Float.parseFloat(req.getParameter("amount"));
-		System.out.println("compteA" + compteA);
-		System.out.println("compteB" + compteB);
 		AccountService service = AccountService.getInstance();
-		service.transfer(compteA, compteB, montant);
-		resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html");
+		Boolean result = service.transfer(compteA, compteB, montant);
+		req.setAttribute("result", result);
+		this.doGet(req, resp);
 	}
 
 }

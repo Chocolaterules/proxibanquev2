@@ -35,8 +35,6 @@ public interface Dao<T> {
 	 */
 	public List<T> readAll();
 	
-	public List<T> readAll(Integer id);
-	
 	/**
 	 * Met à jour l'entité donnée dans la base de données.
 	 * 
@@ -53,6 +51,5 @@ public interface Dao<T> {
 	 */
 	public boolean delete(Integer id);
 
-	public T create(T entity, Integer id);
 
 }
