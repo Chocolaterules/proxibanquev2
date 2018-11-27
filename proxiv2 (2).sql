@@ -43,9 +43,9 @@ DROP TABLE IF EXISTS `client`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `client` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `fistname` varchar(45) NOT NULL,
+  `firstname` varchar(45) NOT NULL,
   `lastname` varchar(45) NOT NULL,
-  `emailaddress` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
   `address` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -64,4 +64,4 @@ CREATE TABLE `client` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-26 13:18:16
+-- Dump completed on 2018-11-27 16:52:38

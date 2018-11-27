@@ -23,7 +23,7 @@ public class TransferServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * La méthode doGet() de la classe TransferServlet permet à l'utilisateur de récupérer les informations d'un Account.
+	 * La méthode doGet() de la classe TransferServlet permet à l'utilisateur d' afficher dans la jsples informations d'un Account.
 	 * 
 	 * @param HttpServletRequest req, HttpServletResponse resp
 	 */

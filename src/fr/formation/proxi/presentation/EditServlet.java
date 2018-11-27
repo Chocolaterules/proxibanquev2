@@ -24,7 +24,7 @@ public class EditServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * La méthode doGet() de la classe EditServlet permet à l'utilisateur de récupérer les informations d'un Client dans le tableau client.
+	 * La méthode doGet() de la classe EditServlet permet à l'utilisateur d'afficher dans la jsp les informations d'un Client dans le tableau client.
 	 * 
 	 * @param HttpServletRequest req, HttpServletResponse resp
 	 */

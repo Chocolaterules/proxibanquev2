@@ -24,7 +24,7 @@ public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * La méthode doGet() de la classe IndexServlet permet à l'utilisateur de récupérer les informations sur les clients de la table client.
+	 * La méthode doGet() de la classe IndexServlet permet à l'utilisateur d'afficher dans lea jsp les informations sur les clients de la table client.
 	 * 
 	 * @param HttpServletRequest req, HttpServletResponse resp
 	 */

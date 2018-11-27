@@ -23,7 +23,7 @@ public class DeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * La méthode doGet() de la classe DeleteServlet permet à l'utilisateur de récupérer les informations du client à supprimer.
+	 * La méthode doGet() de la classe DeleteServlet permet à l'utilisateur d'afficher dans la jsp les informations du client à supprimer.
 	 * 
 	 * @param HttpServletRequest req, HttpServletResponse resp
 	 */
