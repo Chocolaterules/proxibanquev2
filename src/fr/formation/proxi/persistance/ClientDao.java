@@ -22,8 +22,19 @@ public class ClientDao implements Dao<Client>{
 	
 	@Override
 	public Client create(Client entity) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			Statement st = this.mysqlConn.getConn().createStatement();
+			String query = String.format(SqlQueries.CREATE_CLIENT, entity.getFirstname(), entity.getLastname(), entity.getEmail(), entity.getAddress());
+			boolean success = st.execute(query, Statement.RETURN_GENERATED_KEYS); 
+			if (success) {
+				ResultSet rs = st.getGeneratedKeys();
+				Integer clientId = rs.getInt("GENERATED_KEY");
+				entity.setId(clientId);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return entity;
 	}
 
 	@Override

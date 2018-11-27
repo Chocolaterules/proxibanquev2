@@ -175,8 +175,8 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Sexy & Chocolat Dream Team</h2>
-            <h3 class="section-subheading text-muted">Découvrez notre superbe équipe !</h3>
+            <h2 class="section-heading text-uppercase">Clients Proxibanque</h2>
+            <h3 class="section-subheading text-muted">Choisissez l'action à effectuer</h3>
           </div>
         </div>
            <div class="row">
@@ -193,6 +193,11 @@
           </div>
         
         </c:forEach>
+        <div class="col-sm-4">
+            <div class="client">
+				<a href="create.html"><h4>Créer un nouveau client</h4></a>
+            </div>
+          </div>
            </div>
 		     
         <div class="row">
