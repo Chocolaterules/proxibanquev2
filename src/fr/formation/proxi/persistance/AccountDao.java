@@ -25,7 +25,7 @@ public class AccountDao  implements Dao<Account>{
 	public AccountDao() {
 		this.mysqlConn = MySqlConnection.getInstance();
 	}
-	
+
 	/**
 	 * {@InheritDoc} 
 	 * Crée une nouvelle entité en base de données.
@@ -35,7 +35,6 @@ public class AccountDao  implements Dao<Account>{
 	 * **/
 	
 	
-	@Override
 	public Account create(Account entity, Integer id) {
 		try {
 			Statement st = this.mysqlConn.getConn().createStatement();
@@ -75,12 +74,12 @@ public class AccountDao  implements Dao<Account>{
 				account = new Account(idacc, number, balance, savings);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
 		
 		return account;	
 	}
+
 
 	/**
 	 * {@InheritDoc}
@@ -91,7 +90,6 @@ public class AccountDao  implements Dao<Account>{
 	
 	
 	
-	@Override
 	public List<Account> readAll(Integer id) {
 		List<Account> results = new ArrayList<>();
 		try {
@@ -144,7 +142,18 @@ public class AccountDao  implements Dao<Account>{
 	
 	@Override
 	public boolean delete(Integer id) {
-		return false;
+		Boolean result = false;
+		try {
+			Statement st = this.mysqlConn.getConn().createStatement();
+			int rowsacc = st.executeUpdate(String.format(SqlQueries.DELETE_ACCOUNTS, id));
+			if (rowsacc > 0) {	
+				result = true;				
+			}	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 
 	@Override

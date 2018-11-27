@@ -41,8 +41,9 @@ public class TransferServlet extends HttpServlet {
 		Integer compteB = Integer.parseInt(req.getParameter("account2"));
 		Float montant = Float.parseFloat(req.getParameter("amount"));
 		AccountService service = AccountService.getInstance();
-		service.transfer(compteA, compteB, montant);
-		resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html");
+		Boolean result = service.transfer(compteA, compteB, montant);
+		req.setAttribute("result", result);
+		this.doGet(req, resp);
 	}
 
 }

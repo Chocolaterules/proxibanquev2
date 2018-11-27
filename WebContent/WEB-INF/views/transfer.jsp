@@ -70,41 +70,13 @@
         </div>
       </div>
     </header>
-
-   
-    <h1>Liste des comptes : </h1>
-    <br><br>
-    
-    <div class="row" > 
-    <div class="col-lg-6 text-center">
-		 
-		<c:forEach var="account" items="${accounts}">
-
-			<div class="account" >
-			<c:if test = "${account.savings == 'false'}">
-			<h4>Compte courant</h4>
-			<img src="./img/compte_courant.jpg" style="width: 20%;">
-			<h6>Numéro de compte : ${account.number}</h6>
-          
-              <h6>Solde du compte</h6>
-              <p>${account.balance} &#8364</p>
-              </c:if>
-              
-              <c:if test = "${account.savings == 'true'}">
-              <h4>Compte epargne</h4>
-              <img src="./img/epargne.jpg" style="width: 20%;">
-			<h6>Numéro de compte : ${account.number}</h6>
-          
-              <h6>Solde du compte</h6>
-              <p>${account.balance} &#8364</p>
-              </c:if>
-
-			</div>
-		</c:forEach>
-		</div>
-	</div>
-	<br>
 	
+	<c:if test="${accounts.size()<2}">
+	<div>
+		Vous n'avez pas assez de comptes pour faire un virement compte à compte.
+	</div>
+	</c:if>
+	<c:if test="${accounts.size()>=2}">
 	<form method="post" action="">
 		<div>
 			<label for="account1">compte à débiter</label>
@@ -133,6 +105,18 @@
 		
 		<button>Valider</button>
 	</form>
+	</c:if>
+	
+	<c:if test="${result == 'true'}">
+		<div>
+			Virement effectué !
+		</div>
+	</c:if>
+	<c:if test="${result == 'false'}">
+		<div>
+			Virement non effectué.
+		</div>
+	</c:if>
 	
 	
 	

@@ -106,7 +106,8 @@
 		<p>Aucun compte pour ce client.</p>
 		</c:if>
 		</div>
-		<a href="createaccount.html?id=${client.id}">Créer un nouveau compte</a>
+		<a href="createaccount.html?id=${client.id}">Créer un nouveau compte</a><br>
+		<a href="transfer.html?id=${client.id}">Faire un virement</a>
 	</div>
 	<br>
 	<a href="index.html">Revenir au menu précédent</a>

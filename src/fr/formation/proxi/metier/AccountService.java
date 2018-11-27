@@ -45,23 +45,22 @@ public class AccountService {
 	public Account getAccount(Integer id) {
 		return this.dao.read(id);
 	}
-	
-	public void transfer(Account entity) {
-		this.dao.update(entity);
-	}
 
-	public void transfer(Integer compteA, Integer compteB, Float montant) {
+	public boolean transfer(Integer compteA, Integer compteB, Float montant) {
 		
 		Account accountA  = this.dao.read(compteA);
 		Account accountB  = this.dao.read(compteB);
-		
-		if (accountA.getBalance() >= montant) {
-			accountA.setBalance(accountA.getBalance() - montant);
-			this.dao.update(accountA);
-			accountB.setBalance(accountB.getBalance() + montant);
-			this.dao.update(accountB);
+		Boolean result = false;
+		if (accountA.getId()!=accountB.getId()) {
+			if (accountA.getBalance() >= montant) {
+				accountA.setBalance(accountA.getBalance() - montant);
+				this.dao.update(accountA);
+				accountB.setBalance(accountB.getBalance() + montant);
+				this.dao.update(accountB);
+				result = true;
+			}
 		}
-		
+		return result;
 		
 	}
 
