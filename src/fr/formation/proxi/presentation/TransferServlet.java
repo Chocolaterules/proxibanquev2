@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import fr.formation.proxi.metier.AccountService;
 
 /**
- * la class transferServlet hérite de la class HttpServlet
- * elle utilise les méthode doGet()  qui récupère les informations du compte à modifier via le paramètre id 
- * Et la méthode doPost() 
+ * la class TransferServlet hérite de la class HttpServlet
+ * elle utilise les méthode doGet() et doPost() 
  * @author Marie_Julien
  *
  */
@@ -21,11 +20,13 @@ import fr.formation.proxi.metier.AccountService;
 
 public class TransferServlet extends HttpServlet {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * La méthode doGet() de la classe TransferServlet permet à l'utilisateur de récupérer les informations d'un Account.
+	 * 
+	 * @param HttpServletRequest req, HttpServletResponse resp
+	 */
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,6 +35,13 @@ public class TransferServlet extends HttpServlet {
 		req.setAttribute("accounts", service.getAll(id));
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/transfer.jsp").forward(req, resp);
 	}
+	
+	/**
+	 * la méthode doPost() de la class TransfertServlet permet à l'utilisateur d'envoyer les informations nécessaires à la modification 
+	 * du solde à modifier.
+	 * 
+	 * @param HttpServletRequest req, HttpServletResponse resp
+	 */
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
