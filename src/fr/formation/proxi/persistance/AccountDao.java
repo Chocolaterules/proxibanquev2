@@ -37,9 +37,10 @@ public class AccountDao  implements Dao<Account>{
 			ResultSet rs = st.executeQuery(String.format(SqlQueries.READ_ALL_ACCOUNT, id));
 			//ResultSet rs = st.executeQuery(SqlQueries.READ_ALL_ACCOUNT);
 			while(rs.next()) {
+				Boolean savings = rs.getBoolean("savings");
 				String number = rs.getString("number");
 				Float  balance = rs.getFloat("balance");
-				results.add(new Account(number, balance));
+				results.add(new Account(number, balance, savings));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
