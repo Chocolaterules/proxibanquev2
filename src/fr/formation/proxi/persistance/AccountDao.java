@@ -14,7 +14,7 @@ import fr.formation.proxi.metier.entity.Account;
 /**
  * {@InheritDoc}
  * Implémentation  pour le client de la classe Dao omportant les 4 méthodes élémentaires de
- * manipulation de données (CRUD) + readAll.
+ * manipulation de données (CRUD) + readAll. 
  * @author Marie_Julien
  *
  */
