@@ -2,6 +2,8 @@ package fr.formation.proxi.persistance;
 
 
 import fr.formation.proxi.persistance.MySqlConnection;
+import fr.formation.proxi.persistance.SqlQueries;
+import fr.formation.proxi.metier.AccountService;
 import fr.formation.proxi.metier.entity.Client;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -44,11 +46,12 @@ public class ClientDao implements Dao<Client>{
 			Statement st = this.mysqlConn.getConn().createStatement();
 			ResultSet rs = st.executeQuery(String.format(SqlQueries.READ_CLIENT, id));
 			while(rs.next()) {
+				Integer idcli = rs.getInt("id");
 				String firstname = rs.getString("firstname");
 				String lastname = rs.getString("lastname");
 				String email = rs.getString("email");
 				String address = rs.getString("address");
-				client =new Client(firstname, lastname, email, address);
+				client =new Client(idcli, firstname, lastname, email, address);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -97,13 +100,39 @@ public class ClientDao implements Dao<Client>{
 
 	@Override
 	public boolean delete(Integer id) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean result = false;
+		try {
+			Statement st = this.mysqlConn.getConn().createStatement();
+			if (AccountService.getInstance().getAll(id).size()!=0) {
+				int rowsacc = st.executeUpdate(String.format(SqlQueries.DELETE_ACCOUNTS, id));
+				if (rowsacc > 0) {
+					int rowscli = st.executeUpdate(String.format(SqlQueries.DELETE_CLIENT, id));
+					if (rowscli > 0) {
+						result = true;
+					}
+				}
+			} else {
+				int rowscli = st.executeUpdate(String.format(SqlQueries.DELETE_CLIENT, id));
+				if (rowscli > 0) {
+					result = true;
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 
 	@Override
 	public List<Client> readAll(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Client create(Client entity, Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

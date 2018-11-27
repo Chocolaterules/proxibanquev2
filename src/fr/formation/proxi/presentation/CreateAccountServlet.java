@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.formation.proxi.metier.ClientService;
+import fr.formation.proxi.metier.AccountService;
 
-public class CreateServlet extends HttpServlet {
+public class CreateAccountServlet extends HttpServlet {
 
 	/**
 	 * 
@@ -18,17 +18,17 @@ public class CreateServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/WEB-INF/views/create.jsp").forward(req, resp);
+//		Integer id = Integer.parseInt(req.getParameter("id"));
+		this.getServletContext().getRequestDispatcher("/WEB-INF/views/createaccount.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String lastname = req.getParameter("lastname");
-		String firstname = req.getParameter("firstname");
-		String email = req.getParameter("email");
-		String address = req.getParameter("address");
-		ClientService service = ClientService.getInstance();
-		service.addClient(firstname, lastname, email, address);
+		String number = req.getParameter("number");
+		Float balance = Float.parseFloat(req.getParameter("balance"));
+		Boolean savings = Boolean.parseBoolean(req.getParameter("savings"));
+		Integer id = Integer.parseInt(req.getParameter("id"));
+		AccountService.getInstance().addAccount(number, balance, savings, id);
 		resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html");
 	}
 

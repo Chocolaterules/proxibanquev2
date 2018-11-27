@@ -73,19 +73,19 @@
     
     <form method="post" action="">
 		<div>
-			<label for="lastname">Nom</label>
+			<label for="lastname">Nom : </label>
 			<input id="lastname" name="lastname">
 		</div>
 		<div>
-			<label for="firstname">Prénom</label>
+			<label for="firstname">Prénom : </label>
 			<input id="firstname" name="firstname">
 		</div>
 		<div>
-			<label for="email">Email</label>
+			<label for="email">Email : </label>
 			<input id="email" name="email">
 		</div>
 		<div>
-			<label for="address">Adresse</label>
+			<label for="address">Adresse : </label>
 			<input id="address" name="address">
 		</div>
 		<button>Valider</button>

@@ -18,8 +18,20 @@ public class AccountDao  implements Dao<Account>{
 	}
 	
 	@Override
-	public Account create(Account entity) {
-		return null;
+	public Account create(Account entity, Integer id) {
+		try {
+			Statement st = this.mysqlConn.getConn().createStatement();
+			String query = String.format(SqlQueries.CREATE_ACCOUNT, entity.getNumber(), entity.getBalance(), entity.isSavings(), id);
+			boolean success = st.execute(query, Statement.RETURN_GENERATED_KEYS); 
+			if (success) {
+				ResultSet rs = st.getGeneratedKeys();
+				Integer accountId = rs.getInt("GENERATED_KEY");
+				entity.setId(accountId);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return entity;
 	}
 
 	@Override
@@ -58,6 +70,12 @@ public class AccountDao  implements Dao<Account>{
 
 	@Override
 	public List<Account> readAll() {
+		return null;
+	}
+
+	@Override
+	public Account create(Account entity) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

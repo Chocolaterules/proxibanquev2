@@ -3,6 +3,7 @@ package fr.formation.proxi.persistance;
 
 import java.util.List;
 
+
 /**
  * Définition d'une interface comportant les 4 méthodes élémentaires de
  * manipulation de données (CRUD) + readAll.
@@ -51,5 +52,7 @@ public interface Dao<T> {
 	 * @return boolean vrai si la suppression est un succès, sinon faux.
 	 */
 	public boolean delete(Integer id);
+
+	public T create(T entity, Integer id);
 
 }

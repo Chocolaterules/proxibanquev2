@@ -20,6 +20,10 @@ public class AccountService {
 		this.dao = new AccountDao();
 	}
 	
+	public void addAccount(String number, Float balance, Boolean savings, Integer id) {
+		this.dao.create(new Account(number, balance, savings), id);
+	}
+	
 	public List<Account> getAll(Integer id) {
 		return this.dao.readAll(id);
 	}

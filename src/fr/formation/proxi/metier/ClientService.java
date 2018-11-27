@@ -35,5 +35,9 @@ public class ClientService {
 		Client client = new Client(id, firstname, lastname, email, address);
 		this.dao.update(client);
 	}
+	
+	public void deleteClient(Integer id) {
+		this.dao.delete(id);
+	}
 
 }

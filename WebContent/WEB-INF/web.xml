@@ -13,13 +13,33 @@
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>CreateServlet</servlet-name>
-		<servlet-class>fr.formation.proxi.presentation.CreateServlet</servlet-class>
+		<servlet-name>CreateClientServlet</servlet-name>
+		<servlet-class>fr.formation.proxi.presentation.CreateClientServlet</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>CreateServlet</servlet-name>
-		<url-pattern>/create.html</url-pattern>
+		<servlet-name>CreateClientServlet</servlet-name>
+		<url-pattern>/createclient.html</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CreateAccountServlet</servlet-name>
+		<servlet-class>fr.formation.proxi.presentation.CreateAccountServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>CreateAccountServlet</servlet-name>
+		<url-pattern>/createaccount.html</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DeleteServlet</servlet-name>
+		<servlet-class>fr.formation.proxi.presentation.DeleteServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>DeleteServlet</servlet-name>
+		<url-pattern>/delete.html</url-pattern>
 	</servlet-mapping>
 
 	<servlet>

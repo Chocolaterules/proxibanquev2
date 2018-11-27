@@ -7,10 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.formation.proxi.metier.AccountService;
 import fr.formation.proxi.metier.ClientService;
 
-public class AccountListServlet extends HttpServlet {
+public class DeleteServlet extends HttpServlet {
 
 	/**
 	 * 
@@ -19,13 +18,9 @@ public class AccountListServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String strId = req.getParameter("id");
-		Integer id = Integer.parseInt(strId);
-		AccountService service = AccountService.getInstance();
-		req.setAttribute("accounts", service.getAll(id));
-		req.setAttribute("client", ClientService.getInstance().getClient(id));
-		this.getServletContext().getRequestDispatcher("/WEB-INF/views/accountList.jsp").forward(req, resp);
+		Integer id = Integer.parseInt(req.getParameter("id"));
+		ClientService.getInstance().deleteClient(id);
+		resp.sendRedirect(this.getServletContext().getContextPath() + "/index.html");
 	}
-	
 
 }

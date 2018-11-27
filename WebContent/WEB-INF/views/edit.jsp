@@ -73,19 +73,19 @@
     
     <form method="post" action="">
 		<div>
-			<label for="lastname">Nom</label>
+			<label for="lastname">Nom : </label>
 			<input id="lastname" name="lastname" value="${client.lastname}">
 		</div>
 		<div>
-			<label for="firstname">Prénom</label>
+			<label for="firstname">Prénom : </label>
 			<input id="firstname" name="firstname" value="${client.firstname}">
 		</div>
 		<div>
-			<label for="email">Email</label>
+			<label for="email">Email : </label>
 			<input id="email" name="email" value="${client.email}">
 		</div>
 		<div>
-			<label for="address">Adresse</label>
+			<label for="address">Adresse : </label>
 			<input id="address" name="address" value="${client.address}">
 		</div>
 		<button>Valider</button>

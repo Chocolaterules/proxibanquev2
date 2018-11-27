@@ -81,7 +81,7 @@
 		<c:forEach var="account" items="${accounts}">
 
 			<div class="account" >
-			<c:if test = "${account.savings == 'false'}">
+			<c:if test="${account.savings == 'false'}">
 			<h4>Compte courant</h4>
 			<img src="./img/compte_courant.jpg" style="width: 20%;">
 			<h6>Numéro de compte : ${account.number}</h6>
@@ -90,7 +90,7 @@
               <p>${account.balance} &#8364</p>
               </c:if>
               
-              <c:if test = "${account.savings == 'true'}">
+              <c:if test="${account.savings == 'true'}">
               <h4>Compte epargne</h4>
               <img src="./img/epargne.jpg" style="width: 20%;">
 			<h6>Numéro de compte : ${account.number}</h6>
@@ -106,6 +106,7 @@
 		<p>Aucun compte pour ce client.</p>
 		</c:if>
 		</div>
+		<a href="createaccount.html?id=${client.id}">Créer un nouveau compte</a>
 	</div>
 	<br>
 	<a href="index.html">Revenir au menu précédent</a>
