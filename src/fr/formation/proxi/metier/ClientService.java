@@ -19,6 +19,10 @@ public class ClientService {
 		this.dao = new ClientDao();
 	}
 	
+	public void addClient(String firstname, String lastname, String email, String address) {
+		this.dao.create(new Client(firstname, lastname, email, address));
+	}
+	
 	public List<Client> getAll() {
 		return this.dao.readAll();
 	}

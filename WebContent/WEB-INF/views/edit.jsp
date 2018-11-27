@@ -89,6 +89,7 @@
 			<input id="address" name="address" value="${client.address}">
 		</div>
 		<button>Valider</button>
+		<a href="index.html"><button>Annuler</button></a>
 	</form>
 
     <!-- Clients -->

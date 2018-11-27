@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,177 +70,27 @@
         </div>
       </div>
     </header>
-
-   
-    <h1>Liste des comptes : </h1>
-    <br><br>
     
-    <div class="row" > 
-    <div class="col-lg-6 text-center">
-		<c:if test="${accounts.size()!=0}">
-		<c:forEach var="account" items="${accounts}">
-
-			<div class="account" >
-			<c:if test = "${account.savings == 'false'}">
-			<h4>Compte courant</h4>
-			<img src="./img/compte_courant.jpg" style="width: 20%;">
-			<h6>Numéro de compte : ${account.number}</h6>
-          
-              <h6>Solde du compte</h6>
-              <p>${account.balance} &#8364</p>
-              </c:if>
-              
-              <c:if test = "${account.savings == 'true'}">
-              <h4>Compte epargne</h4>
-              <img src="./img/epargne.jpg" style="width: 20%;">
-			<h6>Numéro de compte : ${account.number}</h6>
-          
-              <h6>Solde du compte</h6>
-              <p>${account.balance} &#8364</p>
-              </c:if>
-
-			</div>
-		</c:forEach>
-		</c:if>
-		<c:if  test="${accounts.size()==0}">
-		<p>Aucun compte pour ce client.</p>
-		</c:if>
+    <form method="post" action="">
+		<div>
+			<label for="lastname">Nom</label>
+			<input id="lastname" name="lastname">
 		</div>
-	</div>
-	<br>
-	<a href="index.html">Revenir au menu précédent</a>
-
-
-
-    <!-- Portfolio Grid -->
-    <section class="bg-light" id="portfolio">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Service Client</h2>
-            <h3 class="section-subheading text-muted">Veuillez choisir une action à réaliser.</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/01-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Créer un dossier client</h4>
-              <p class="text-muted">.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/02-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Gérer un dossier client</h4>
-              <p class="text-muted">.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/03-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Modifier un dossier client</h4>
-              <p class="text-muted">.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/04-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Faire un virement</h4>
-              <p class="text-muted">.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/05-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Faire une simulation de crédit</h4>
-              <p class="text-muted">.</p>
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/06-thumbnail.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Supprimer un dossier client</h4>
-              <p class="text-muted">.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- Team -->
-    <section class="bg-light" id="team">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Sexy & Chocolat Dream Team</h2>
-            <h3 class="section-subheading text-muted">Découvrez notre superbe équipe !</h3>
-          </div>
-        </div>
-           <div class="row">
-        <c:forEach var="client" items="${clients}">
-     
-          <div class="col-sm-4">
-            <div class="client">
-				<h4>${client.firstname} ${client.lastname}</h4>
-              <p>${client.email}<br>${client.address}</p>
-			  <p class="text-muted">Modifier les informations<br>Liste des comptes<br>Faire un virement</p>
-            </div>
-          </div>
-        
-        </c:forEach>
-           </div>
-		     
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <p class="large text-muted">Notre team est à votre écoute, n'hésitez pas à nous contacter.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+		<div>
+			<label for="firstname">Prénom</label>
+			<input id="firstname" name="firstname">
+		</div>
+		<div>
+			<label for="email">Email</label>
+			<input id="email" name="email">
+		</div>
+		<div>
+			<label for="address">Adresse</label>
+			<input id="address" name="address">
+		</div>
+		<button>Valider</button>
+		<a href="index.html"><button>Annuler</button></a>
+	</form>
 
     <!-- Clients -->
     <section class="py-5">

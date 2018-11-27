@@ -19,13 +19,11 @@ public class AccountDao  implements Dao<Account>{
 	
 	@Override
 	public Account create(Account entity) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Account read(Integer id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -50,19 +48,16 @@ public class AccountDao  implements Dao<Account>{
 
 	@Override
 	public Account update(Account entity) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public boolean delete(Integer id) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public List<Account> readAll() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
