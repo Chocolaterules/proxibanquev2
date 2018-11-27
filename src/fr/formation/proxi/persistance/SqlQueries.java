@@ -1,5 +1,14 @@
 package fr.formation.proxi.persistance;
 
+/**
+ * La class SqlQueries crée les requetes SQL sous format string pour pouvoir être utilisées 
+ * dans le code JAVA
+ * 
+ * @author Marie_Julien
+ *
+ */
+
+
 public class SqlQueries {
 
 	public static final String READ_ALL_CLIENT = "SELECT * FROM client;";

@@ -5,6 +5,12 @@ import java.util.List;
 import fr.formation.proxi.metier.entity.Account;
 import fr.formation.proxi.persistance.AccountDao;
 
+/**
+ * la classe AccountService definit toutes les méthodes 
+ * 
+ * @author Adminl
+ *
+ */
 
 public class AccountService {
 	
@@ -13,6 +19,8 @@ public class AccountService {
 	public static AccountService getInstance() {
 		return AccountService.INSTANCE;
 	}
+	
+	
 	
 	private final AccountDao dao;
 
@@ -28,6 +36,12 @@ public class AccountService {
 		return this.dao.readAll(id);
 	}
 	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+	
 	public Account getAccount(Integer id) {
 		return this.dao.read(id);
 	}
@@ -42,7 +56,6 @@ public class AccountService {
 		Account accountB  = this.dao.read(compteB);
 		
 		if (accountA.getBalance() >= montant) {
-//			Float a = accountA.getBalance() - montant;
 			accountA.setBalance(accountA.getBalance() - montant);
 			this.dao.update(accountA);
 			accountB.setBalance(accountB.getBalance() + montant);

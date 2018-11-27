@@ -11,6 +11,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * {@InheritDoc}
+ * Implémentation  pour le client de la classe Dao omportant les 4 méthodes élémentaires de
+ * manipulation de données (CRUD) + readAll.
+ * @author Marie_Julien
+ *
+ */
 
 public class ClientDao implements Dao<Client>{
 	
@@ -18,10 +25,19 @@ public class ClientDao implements Dao<Client>{
 	
 	private final MySqlConnection mysqlConn;
 
+	
+	
 	public ClientDao() {
 		this.mysqlConn = MySqlConnection.getInstance();
 	}
 	
+	/**
+	 * {@InheritDoc} 
+	 * Crée une nouvelle entité en base de données.
+	 * 
+	 * @param Client le client à créer.
+	 * @return Client avec son identifiant rempli.
+	 */
 	@Override
 	public Client create(Client entity) {
 		try {
@@ -38,6 +54,15 @@ public class ClientDao implements Dao<Client>{
 		}
 		return entity;
 	}
+
+	
+	/**
+	 * {@InheritDoc}
+	 * Lit les informations d'un Client en base de données.
+	 * 
+	 * @param id du Client.
+	 * @return Client construit à partir des informations récupérées.
+	 */
 
 	@Override
 	public Client read(Integer id) {
@@ -59,6 +84,14 @@ public class ClientDao implements Dao<Client>{
 		return client;
 	}
 
+	/**
+	 * {@InheritDoc}
+	 *  Récupère toutes les information de la table client.
+	 * 
+	 * @return List<Client> la liste de toutes les clients lus.
+	 */
+	
+	
 	@Override
 	public List<Client> readAll() {
 		List<Client> results = new ArrayList<>();
@@ -79,6 +112,15 @@ public class ClientDao implements Dao<Client>{
 		return results;
 	}
 
+	/**
+	 * {@InheritDoc} 
+	 * Met à jour l'entité donnée dans la base de données.
+	 * 
+	 * @param Client à mettre à jour avec ses nouvelles informations.
+	 * @return Client mis à jour.
+	 */
+	
+	
 	@Override
 	public Client update(Client entity) {
 		try {
@@ -98,6 +140,15 @@ public class ClientDao implements Dao<Client>{
 		return entity;
 	}
 
+	
+	/**
+	 * {@InheritDoc} 
+	 * Supprime définitivement un ou plusieurs paramètres du client
+	 * 
+	 * @param id l'identifiant unique du client à supprimer.
+	 * @return boolean vrai si la suppression est un succès, sinon faux.
+	 */
+	
 	@Override
 	public boolean delete(Integer id) {
 		boolean result = false;

@@ -9,6 +9,15 @@ import java.util.List;
 import fr.formation.proxi.persistance.SqlQueries;
 import fr.formation.proxi.metier.entity.Account;
 
+
+/**
+ * {@InheritDoc}
+ * Implémentation  pour le client de la classe Dao omportant les 4 méthodes élémentaires de
+ * manipulation de données (CRUD) + readAll.
+ * @author Marie_Julien
+ *
+ */
+
 public class AccountDao  implements Dao<Account>{
 
 	private final MySqlConnection mysqlConn;
@@ -16,6 +25,15 @@ public class AccountDao  implements Dao<Account>{
 	public AccountDao() {
 		this.mysqlConn = MySqlConnection.getInstance();
 	}
+	
+	/**
+	 * {@InheritDoc} 
+	 * Crée une nouvelle entité en base de données.
+	 * 
+	 * @param Account le compte à créer et l'id du compte.
+	 * @return  Account avec son identifiant rempli.
+	 * **/
+	
 	
 	@Override
 	public Account create(Account entity, Integer id) {
@@ -34,6 +52,15 @@ public class AccountDao  implements Dao<Account>{
 		return entity;
 	}
 
+	/**
+	 * {@InheritDoc}
+	 * Lit les informations d'un Client en base de données.
+	 * 
+	 * @param id du Client.
+	 * @return Client construit à partir des informations récupérées.
+	 */
+	
+	
 	@Override
 	public Account read(Integer id){
 		Account account = new Account();
@@ -55,13 +82,21 @@ public class AccountDao  implements Dao<Account>{
 		return account;	
 	}
 
+	/**
+	 * {@InheritDoc}
+	 *  Récupère toutes les information de la table account.
+	 * 
+	 * @return List<Account> la liste de toutes les Account lus.
+	 */
+	
+	
+	
 	@Override
 	public List<Account> readAll(Integer id) {
 		List<Account> results = new ArrayList<>();
 		try {
 			Statement st = this.mysqlConn.getConn().createStatement();
 			ResultSet rs = st.executeQuery(String.format(SqlQueries.READ_ALL_ACCOUNT, id));
-			//ResultSet rs = st.executeQuery(SqlQueries.READ_ALL_ACCOUNT);
 			while(rs.next()) {
 				Integer idacc = rs.getInt("id");
 				Boolean savings = rs.getBoolean("savings");
@@ -75,6 +110,15 @@ public class AccountDao  implements Dao<Account>{
 		return results;
 	}
 
+	
+	/**
+	 * {@InheritDoc} 
+	 * Met à jour l'Account donné dans la base de données.
+	 * 
+	 * @param Account à mettre à jour avec ses nouvelles informations.
+	 * @return Account mis à jour.
+	 */
+	
 	@Override
 	public Account update(Account entity) {
 		try {
@@ -90,6 +134,14 @@ public class AccountDao  implements Dao<Account>{
 		return entity;
 	}
 
+	/**
+	 * {@InheritDoc} 
+	 * Supprime définitivement un ou plusieurs paramètres de Account
+	 * 
+	 * @param id l'identifiant unique de l'Account à supprimer.
+	 * @return boolean vrai si la suppression est un succès, sinon faux.
+	 */
+	
 	@Override
 	public boolean delete(Integer id) {
 		return false;

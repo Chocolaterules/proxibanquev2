@@ -4,6 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * la class MySqlConnection de créer une seule et unique connexion à notre base de donnée 
+ * via l'utilisation du Singleton INSTANCE
+ * 
+ * @author Marie_Julien
+ *
+ */
+
 public class MySqlConnection {
 
 private static final MySqlConnection INSTANCE = new MySqlConnection();
@@ -13,6 +21,12 @@ private static final MySqlConnection INSTANCE = new MySqlConnection();
 	}
 
 	private Connection conn;
+	
+	
+	/**
+	 * le constructeur MySqlConnection charge le driver à l'aide de la méthode forname() 
+	 * etrenvoie une connexion à l'aide de la méthode getconnection
+	 */
 	
 	public MySqlConnection() {
 		try {
@@ -24,6 +38,11 @@ private static final MySqlConnection INSTANCE = new MySqlConnection();
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * la méthode getConn() permet d'établir la connexion.
+	 * @return Connection
+	 */
 	
 	public Connection getConn() {
 		return conn;
