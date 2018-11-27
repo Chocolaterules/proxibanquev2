@@ -71,21 +71,39 @@
       </div>
     </header>
 
-    
+   
     <h1>Liste des comptes : </h1>
-    <div class="col-lg-12 text-center">
-	<div class="row" > 
+    <br><br>
+    
+    <div class="row" > 
+    <div class="col-lg-6 text-center">
 		 
 		<c:forEach var="account" items="${accounts}">
-			<div class="account" style="margin-right: 15px">
-			<h6>Numéro de compte</h6>
-              <p>${account.number}<br>
+			<div class="account" >
+			<c:if test = "${account.savings == 'false'}">
+			<h4>Compte courant</h4>
+			<img src="./img/compte_courant.jpg" style="width: 20%;">
+			<h6>Numéro de compte : ${account.number}</h6>
+          
               <h6>Solde du compte</h6>
-              ${account.balance} &#8364</p>
+              <p>${account.balance} &#8364</p>
+              </c:if>
+              
+              <c:if test = "${account.savings == 'true'}">
+              <h4>Compte epargne</h4>
+              <img src="./img/epargne.jpg" style="width: 20%;">
+			<h6>Numéro de compte : ${account.number}</h6>
+          
+              <h6>Solde du compte</h6>
+              <p>${account.balance} &#8364</p>
+              </c:if>
 			</div>
 		</c:forEach>
 		</div>
 	</div>
+	<br>
+	<a href="index.html">Revenir au menu précédent</a>
+
 
 
     <!-- Portfolio Grid -->
