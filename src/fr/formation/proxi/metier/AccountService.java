@@ -32,8 +32,24 @@ public class AccountService {
 		return this.dao.read(id);
 	}
 	
-	public void updateAccount(Account entity) {
+	public void transfer(Account entity) {
 		this.dao.update(entity);
+	}
+
+	public void transfer(Integer compteA, Integer compteB, Float montant) {
+		
+		Account accountA  = this.dao.read(compteA);
+		Account accountB  = this.dao.read(compteB);
+		
+		if (accountA.getBalance() >= montant) {
+//			Float a = accountA.getBalance() - montant;
+			accountA.setBalance(accountA.getBalance() - montant);
+			this.dao.update(accountA);
+			accountB.setBalance(accountB.getBalance() + montant);
+			this.dao.update(accountB);
+		}
+		
+		
 	}
 
 

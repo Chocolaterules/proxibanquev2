@@ -71,6 +71,75 @@
       </div>
     </header>
 
+   
+    <h1>Liste des comptes : </h1>
+    <br><br>
+    
+    <div class="row" > 
+    <div class="col-lg-6 text-center">
+		 
+		<c:forEach var="account" items="${accounts}">
+
+			<div class="account" >
+			<c:if test = "${account.savings == 'false'}">
+			<h4>Compte courant</h4>
+			<img src="./img/compte_courant.jpg" style="width: 20%;">
+			<h6>Numéro de compte : ${account.number}</h6>
+          
+              <h6>Solde du compte</h6>
+              <p>${account.balance} &#8364</p>
+              </c:if>
+              
+              <c:if test = "${account.savings == 'true'}">
+              <h4>Compte epargne</h4>
+              <img src="./img/epargne.jpg" style="width: 20%;">
+			<h6>Numéro de compte : ${account.number}</h6>
+          
+              <h6>Solde du compte</h6>
+              <p>${account.balance} &#8364</p>
+              </c:if>
+
+			</div>
+		</c:forEach>
+		</div>
+	</div>
+	<br>
+	
+	<form method="post" action="">
+		<div>
+			<label for="account1">compte à débiter</label>
+			<select id="account1" name="account1">
+					<option label="----" value="">
+					<c:forEach var="account" items="${accounts}">
+						<option label="${account.number}    solde :${account.balance} &#8364"  value="${account.id}" />
+					</c:forEach>
+				</select>
+		</div>
+		
+		<div>
+			<label for="account2">compte à créditer</label>
+			<select id="account2" name="account2">
+					<option label="----" value="">
+					<c:forEach var="account" items="${accounts}">
+						<option label="${account.number}  solde :${account.balance} &#8364" value="${account.id}"/>
+					</c:forEach>
+				</select>
+		</div>
+		<h2>Quelle somme souhaitez vous transferer ?</h2>
+		<div>
+			<label for="amount">montant</label>
+			<input id="amount" name="amount">
+		</div>
+		
+		<button>Valider</button>
+	</form>
+	
+	
+	
+	<a href="index.html">Revenir au menu précédent</a>
+
+
+
     <!-- Portfolio Grid -->
     <section class="bg-light" id="portfolio">
       <div class="container">
@@ -175,8 +244,8 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Clients Proxibanque</h2>
-            <h3 class="section-subheading text-muted">Choisissez l'action à effectuer</h3>
+            <h2 class="section-heading text-uppercase">Sexy & Chocolat Dream Team</h2>
+            <h3 class="section-subheading text-muted">Découvrez notre superbe équipe !</h3>
           </div>
         </div>
            <div class="row">
@@ -186,20 +255,11 @@
             <div class="client">
 				<h4>${client.firstname} ${client.lastname}</h4>
               <p>${client.email}<br>${client.address}</p>
-
-			  <p class="text-muted"><a href="edit.html?id=${client.id}">Modifier les informations</a><br>
-			  <a href="accountList.html?id=${client.id}">Liste des comptes</a><br>
-			  <a href="transfer.html?id=${client.id}">Faire un virement</a><br>
-			  <a href="delete.html?id=${client.id}">Supprimer le client</a></p>
+			  <p class="text-muted">Modifier les informations<br>Liste des comptes<br>Faire un virement</p>
             </div>
           </div>
         
         </c:forEach>
-        <div class="col-sm-4">
-            <div class="client">
-				<a href="createclient.html"><h4>Créer un nouveau client</h4></a>
-            </div>
-          </div>
            </div>
 		     
         <div class="row">
