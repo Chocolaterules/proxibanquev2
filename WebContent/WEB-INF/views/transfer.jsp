@@ -107,30 +107,34 @@
 	
 	<form method="post" action="">
 		<div>
-			<label for="number">Numéro de Compte</label>
-			<input id="number" name="number" value="${account.number}">
+			<label for="account1">compte à débiter</label>
+			<select id="account1" name="account1">
+					<option label="----" value="">
+					<c:forEach var="account" items="${accounts}">
+						<option label="${account.number}    solde :${account.balance} &#8364"  value="${account.id}" />
+					</c:forEach>
+				</select>
 		</div>
+		
 		<div>
-			<label for="balance">montant</label>
-			<input id="balance" name="balance" value="${account.balance}">
+			<label for="account2">compte à créditer</label>
+			<select id="account2" name="account2">
+					<option label="----" value="">
+					<c:forEach var="account" items="${accounts}">
+						<option label="${account.number}  solde :${account.balance} &#8364" value="${account.id}"/>
+					</c:forEach>
+				</select>
+		</div>
+		<h2>Quelle somme souhaitez vous transferer ?</h2>
+		<div>
+			<label for="amount">montant</label>
+			<input id="amount" name="amount">
 		</div>
 		
 		<button>Valider</button>
 	</form>
 	
 	
-	
-	<h1>Virements</h1>
-	<h5>quel compte souhaitez vous débiter ?</h5>
-	
-	<div>
-					<c:forEach var="account" items="${accounts}">
-						<option label="${account.number}" value="${account.balance}"/>
-					</c:forEach>
-				
-			</div>
-			<button>Commander</button>
-			
 	
 	<a href="index.html">Revenir au menu précédent</a>
 

@@ -188,7 +188,8 @@
               <p>${client.email}<br>${client.address}</p>
 
 			  <p class="text-muted"><a href="edit.html?id=${client.id}">Modifier les informations</a><br>
-			  <a href="accountList.html?id=${client.id}">Liste des comptes</a><br>Faire un virement</p>
+			  <a href="accountList.html?id=${client.id}">Liste des comptes</a><br>
+			  <a href="transfer.html?id=${client.id}">Faire un virement</a></p>
             </div>
           </div>
         
