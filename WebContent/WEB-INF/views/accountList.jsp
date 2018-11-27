@@ -79,9 +79,9 @@
 		<c:forEach var="account" items="${accounts}">
 			<div class="account" style="margin-right: 15px">
 			<h6>Numéro de compte</h6>
-              <p>${account.number}<br>
+              <p>${account.number}<br></p>
               <h6>Solde du compte</h6>
-              ${account.balance} &#8364</p>
+              <p>${account.balance} &#8364</p>
 			</div>
 		</c:forEach>
 		</div>

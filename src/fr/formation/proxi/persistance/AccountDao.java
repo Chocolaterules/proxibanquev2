@@ -8,7 +8,6 @@ import java.util.List;
 
 import fr.formation.proxi.persistance.SqlQueries;
 import fr.formation.proxi.metier.entity.Account;
-import fr.formation.proxi.metier.entity.Client;
 
 public class AccountDao  implements Dao<Account>{
 

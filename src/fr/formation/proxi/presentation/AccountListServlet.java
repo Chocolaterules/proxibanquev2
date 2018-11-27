@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.formation.proxi.metier.AccountService;
-import fr.formation.proxi.metier.ClientService;
 
 public class AccountListServlet extends HttpServlet {
 
