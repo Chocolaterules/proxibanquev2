@@ -34,6 +34,8 @@ Deuxieme point : installation de tomcat
 
 Telecharger le soft sur le site ci-après : https://tomcat.apache.org/download-80.cgi
 
+Extraire le fichier .war compris dans le fichier proxibanquev2-Marie-julien.zip
+
 Après l'installation il faut placer le fichier proxibanquev2.war dans le dossier Webapps ou est installé tomcat.
 
 Pour installer le .war, il faut executer dans S:\...\apache-tomcat-8.5.35\bin\startup.bat.
