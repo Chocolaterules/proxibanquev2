@@ -1,9 +1,6 @@
 package fr.formation.proxi.persistance;
 
 
-import java.util.List;
-
-
 /**
  * Définition d'une interface comportant les 4 méthodes élémentaires de
  * manipulation de données (CRUD) + readAll.
@@ -12,13 +9,6 @@ import java.util.List;
  */
 public interface Dao<T> {
 	
-	/**
-	 * Crée une nouvelle entité en base de données.
-	 * 
-	 * @param entity l'entité à créer.
-	 * @return T l'entité avec son identifiant rempli.
-	 */
-	public T create(T entity);
 	
 	/**
 	 * Lit les informations d'une entité en base de données.
@@ -28,12 +18,6 @@ public interface Dao<T> {
 	 */
 	public T read(Integer id);
 	
-	/**
-	 * Récupère toutes les entités (lignes) d'une table.
-	 * 
-	 * @return List<T> la liste de toutes les entités lues.
-	 */
-	public List<T> readAll();
 	
 	/**
 	 * Met à jour l'entité donnée dans la base de données.

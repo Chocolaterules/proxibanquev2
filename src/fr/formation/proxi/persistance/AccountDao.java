@@ -6,6 +6,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.formation.proxi.persistance.MySqlConnection;
 import fr.formation.proxi.persistance.SqlQueries;
 import fr.formation.proxi.metier.entity.Account;
 
@@ -154,17 +155,6 @@ public class AccountDao  implements Dao<Account>{
 		}
 		
 		return result;
-	}
-
-	@Override
-	public List<Account> readAll() {
-		return null;
-	}
-
-	@Override
-	public Account create(Account entity) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	

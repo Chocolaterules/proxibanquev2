@@ -37,7 +37,6 @@ public class ClientDao implements Dao<Client>{
 	 * @param Client le client à créer.
 	 * @return Client avec son identifiant rempli.
 	 */
-	@Override
 	public Client create(Client entity) {
 		try {
 			Statement st = this.mysqlConn.getConn().createStatement();
@@ -90,8 +89,6 @@ public class ClientDao implements Dao<Client>{
 	 * @return List<Client> la liste de toutes les clients lus.
 	 */
 	
-	
-	@Override
 	public List<Client> readAll() {
 		List<Client> results = new ArrayList<>();
 		try {
